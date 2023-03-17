@@ -1,0 +1,49 @@
+{
+    "name": "@mulekick/ocr-data-table-plugin",
+    "description": "'Convert a jQuery Library to React' - OpenClassRooms project : design a reusable React plugin",
+    "version": "0.2.0",
+    "private": false,
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.3.0",
+        "@fortawesome/free-solid-svg-icons": "^6.3.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@tanstack/react-table": "^8.7.9",
+        "react-select": "^5.7.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.21.0",
+        "@babel/core": "^7.21.3",
+        "@babel/preset-env": "^7.20.2",
+        "@babel/preset-react": "^7.18.6",
+        "@faker-js/faker": "^7.6.0",
+        "@mulekick/eslint-config-muleslint": "^1.0.2",
+        "react-scripts": "5.0.1",
+        "sass": "^1.59.3"
+    },
+    "peerDependencies": {
+        "core-js": "^3.29.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+        "eject": "react-scripts eject",
+        "live": "docker container run --rm -d --mount type=bind,source=$(realpath build),target=/content,ro=true -p 8080:80 mulekick/serve-static:latest > /tmp/static-container-id",
+        "die": "docker container stop $(cat /tmp/static-container-id) && rm /tmp/static-container-id"
+    },
+    "engines": {
+        "node": ">=18.14.2",
+        "npm": ">=9.6.0"
+    },
+    "author": "mulekick <moolekick@gmail.com> (https://github.com/mulekick)",
+    "license": "MIT",
+    "repository": {},
+    "bugs": {}
+}
