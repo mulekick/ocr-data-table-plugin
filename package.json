@@ -1,7 +1,7 @@
 {
     "name": "@mulekick/ocr-data-table-plugin",
     "description": "'Convert a jQuery Library to React' - OpenClassRooms project : design a reusable React plugin",
-    "version": "0.2.0",
+    "version": "0.2.5",
     "private": false,
     "type": "module",
     "main": "dist/index.js",
@@ -23,13 +23,15 @@
         "@babel/preset-react": "^7.18.6",
         "@faker-js/faker": "^7.6.0",
         "@mulekick/eslint-config-muleslint": "^1.0.2",
+        "babel-plugin-macros": "^3.1.0",
         "react-scripts": "5.0.1",
         "sass": "^1.59.3"
     },
     "peerDependencies": {
         "core-js": "^3.29.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "sass": "^1.59.3"
     },
     "scripts": {
         "start": "react-scripts start",

@@ -1,6 +1,6 @@
 import {DataTable} from "./lib/index.js";
 
-import {employeesCols, employeesSampleData} from "./constants.js";
+import {sampleCols, sampleData} from "./constants.js";
 
 const
     // init app
@@ -10,7 +10,7 @@ const
             {nul} = props;
 
         // return component
-        return <DataTable colDefs={employeesCols} data={employeesSampleData} />;
+        return <DataTable colDefs={sampleCols} data={sampleData} />;
     };
 
 export default App;

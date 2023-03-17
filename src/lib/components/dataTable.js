@@ -1,12 +1,14 @@
+/* eslint-disable quotes */
+
 // import modules
 import React, {useState} from "react";
 
 // react plugins
 import {flexRender, useReactTable} from "@tanstack/react-table";
 
-// fontawesome related
+// fontawesome related (use dynamic imports)
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowUpAZ, faArrowUpZA, faFastBackward, faFastForward, faStepBackward, faStepForward} from "@fortawesome/free-solid-svg-icons";
+import {solid} from "@fortawesome/fontawesome-svg-core/import.macro.js";
 
 // helpers and redux related
 import createTable from "../helpers/table.js";
@@ -29,8 +31,8 @@ const
             table = useReactTable(createTable(colDefs, data, sorting, setSorting, globalFilter, setGlobalFilter)),
             // headers sorting icons
             sortingIcons = {
-                asc: <FontAwesomeIcon icon={faArrowUpAZ} style={{color: `white`}} />,
-                desc: <FontAwesomeIcon icon={faArrowUpZA} style={{color: `white`}} />
+                asc: <FontAwesomeIcon icon={solid("arrow-up-a-z")} style={{color: `white`}} />,
+                desc: <FontAwesomeIcon icon={solid("arrow-up-z-a")} style={{color: `white`}} />
             },
             // columm width
             cw = 100 / Object.keys(data.at(0)).length;
@@ -83,12 +85,12 @@ const
             <div className="data-table-footer">
                 { /* pagination display */ }
                 <span className="basic-styled">Page <strong>{table.getState().pagination.pageIndex + 1} of {Math.max(table.getPageCount(), 1)}</strong></span>
-                { /* pages navigation */ }
+                { /* pages navigation*/ }
                 <span>
-                    <FontAwesomeIcon icon={faFastBackward} style={{color: `black`, display: table.getCanPreviousPage() ? `block` : `none`}} onClick={() => table.setPageIndex(0)} />
-                    <FontAwesomeIcon icon={faStepBackward} style={{color: `black`, display: table.getCanPreviousPage() ? `block` : `none`}} onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} />
-                    <FontAwesomeIcon icon={faStepForward} style={{color: `black`, display: table.getCanNextPage() ? `block` : `none`}} onClick={() => table.nextPage()} />
-                    <FontAwesomeIcon icon={faFastForward} style={{color: `black`, display: table.getCanNextPage() ? `block` : `none`}} onClick={() => table.setPageIndex(table.getPageCount() - 1)} />
+                    <FontAwesomeIcon icon={solid("fast-backward")} style={{color: `black`, display: table.getCanPreviousPage() ? `block` : `none`}} onClick={() => table.setPageIndex(0)} />
+                    <FontAwesomeIcon icon={solid("step-backward")} style={{color: `black`, display: table.getCanPreviousPage() ? `block` : `none`}} onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} />
+                    <FontAwesomeIcon icon={solid("step-forward")} style={{color: `black`, display: table.getCanNextPage() ? `block` : `none`}} onClick={() => table.nextPage()} />
+                    <FontAwesomeIcon icon={solid("fast-forward")} style={{color: `black`, display: table.getCanNextPage() ? `block` : `none`}} onClick={() => table.setPageIndex(table.getPageCount() - 1)} />
                 </span>
             </div>
         </>;
