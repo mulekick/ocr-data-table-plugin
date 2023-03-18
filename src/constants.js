@@ -1,4 +1,4 @@
-import {faker} from "@faker-js/faker";
+// import {faker} from "@faker-js/faker";
 
 const
     // columns definitions (title, data type, object key)
@@ -7,6 +7,7 @@ const
         {header: `My Sample Column 2`, dataType: `date`, fieldName: `fieldDate`},
         {header: `My Sample Column 3`, dataType: `select`, fieldName: `fieldSelect`}
     ],
+    /*
     // sample select values
     sampleSelectValues = [
         {label: `Label 1`, value: `v1`},
@@ -14,7 +15,7 @@ const
         {label: `Label 3`, value: `v3`},
         {label: `Label 4`, value: `v4`},
         {label: `Label 5`, value: `v5`}
-    ],
+    ];
     // pick a random value between 2 indices
     rnd = (lb, ub) => lb + Math.round(Math.random() * (ub - lb)),
     // column data filler
@@ -25,5 +26,7 @@ const
     }),
     // sample data
     sampleData = Array.from({length: 15}).map(x => createRandomData());
+    */
+    sampleData = [];
 
 export {sampleCols, sampleData};

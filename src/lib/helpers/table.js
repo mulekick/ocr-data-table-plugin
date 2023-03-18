@@ -7,7 +7,7 @@ const
     // date formatter
     df = new Intl.DateTimeFormat(`en-US`, {year: `numeric`, month: `2-digit`, day: `2-digit`}),
     // create custom sorting function
-    customSorting = (rowA, rowB, columnId) => (rowA.getValue(columnId).label < rowB.getValue(columnId).label ? 1 : -1),
+    customSorting = (rowA, rowB, columnId) => (rowA.getValue(columnId).label > rowB.getValue(columnId).label ? 1 : -1),
     /*
     -------------------------------------------------------------------
     valid column definitions for the table are objects with the following signature :

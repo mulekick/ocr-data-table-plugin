@@ -9,8 +9,8 @@ const
             // extract props
             {nul} = props;
 
-        // return component
-        return <DataTable colDefs={sampleCols} data={sampleData} />;
+        // return component if columns definitions and rows data exists
+        return sampleCols && sampleCols.length && sampleData && sampleData.length ? <DataTable colDefs={sampleCols} data={sampleData} /> : null;
     };
 
 export default App;
