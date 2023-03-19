@@ -1,7 +1,7 @@
 {
     "name": "@mulekick/ocr-data-table-plugin",
     "description": "'Convert a jQuery Library to React' - OpenClassRooms project : design a reusable React plugin",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "private": false,
     "type": "module",
     "main": "dist/index.js",

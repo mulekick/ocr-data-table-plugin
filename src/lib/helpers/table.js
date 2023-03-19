@@ -8,22 +8,6 @@ const
     df = new Intl.DateTimeFormat(`en-US`, {year: `numeric`, month: `2-digit`, day: `2-digit`}),
     // create custom sorting function
     customSorting = (rowA, rowB, columnId) => (rowA.getValue(columnId).label > rowB.getValue(columnId).label ? 1 : -1),
-    /*
-    -------------------------------------------------------------------
-    valid column definitions for the table are objects with the following signature :
-    myColumnDefinition = {
-        // string value that displays as a header for the column :
-        header: `My column name`,
-        // data type for values that the column will display, either :
-        // `string` ->  string primitives
-        // `date`   ->  Date objects
-        // `select` ->  select input values, ie. objects with the signature { value<string>, label<string>}
-        dataType: `string`,
-        // field name (actually object key) of the value that the column will display :
-        fieldName: `myColumnValue`
-    }
-    -------------------------------------------------------------------
-    */
     // eslint-disable-next-line max-params
     createTable = (colDefs, data, sorting, setSorting, globalFilter, setGlobalFilter) => ({
         // source data

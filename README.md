@@ -1,23 +1,88 @@
+# How to use the plugin in your react app :
+
+1. Install the plugin
+```bash
+npm install --save @mulekick/ocr-data-table-plugin
+```
+
+2. Import the component in your react app :  
+```js
+import {DataTable} from "@mulekick/ocr-data-table-plugin";`
+```
+
+3. Create the table columns definitions array :
+```js
+const
+    // valid column definitions for the table are objects with the following signature :
+    sampleColumnDefinition = {
+        // string value that displays as a header for the column :
+        header: `My column name`,
+        // data type for values that the column will display, either :
+        // `string` ->  string primitives
+        // `date`   ->  Date objects
+        // `select` ->  select input values, ie. objects with the signature { value<string>, label<string>}
+        dataType: `string`,
+        // field name (actually object key) of the value that the column will display :
+        fieldName: `myColumnValue`
+    },
+    // the table will be passed an array of column definitions so it displays multiple columns
+    tableColumnsDefinitions = [
+        {header: `My Sample Column 1`, dataType: `string`, fieldName: `fieldString`},
+        {header: `My Sample Column 2`, dataType: `date`, fieldName: `fieldDate`},
+        {header: `My Sample Column 3`, dataType: `select`, fieldName: `fieldSelect`}
+    ];
+```
+
+4. Create the table rows data array :
+```js 
+const
+    // each entry in the rows data array must match the column definitions to display without errors
+    tableRowsData = [
+        {fieldString: `sample value 1`, fieldDate: new Date(`01/01/2022`), fieldSelect: {value: `val1`, label: `select value 1`}},
+        {fieldString: `sample value 2`, fieldDate: new Date(`01/01/2023`), fieldSelect: {value: `val2`, label: `select value 2`}}
+    ];
+```
+
+4. Pass the table columns definitions array and the table rows data array to the component as props :
+```js 
+<DataTable colDefs={tableColumnsDefinitions} data={tableRowsData} />
+```
+
+5. Component props :
+
+| Name    | Description                                      | Remarks                    |
+|---------| ------------------------------------------------ | -------------------------- |
+| colDefs | array of columns definitions objects (see above) | length must not be zero    |
+| data    | array of rows data objects (see above)           | length must not be zero    |
+
 # Create React App customizations :
+
 1. use the standard template for create-react-app
 ```bash
 npx create-react-app ocr-data-table-plugin
 ```
 2. remove useless dependencies
 ```bash
-npm uninstall --save @testing-library/jest-dom @testing-library/react @testing-library/user-event web-vitals
+npm uninstall --save @testing-library/jest-dom @testing-library/react @testing-library/user-event web-vitals react-scripts
 ```
 3. install project dev dependencies
 ```bash
-npm install --save-dev @mulekick/eslint-config-muleslint
+npm install --save-dev @babel/cli @babel/core @babel/preset-env @babel/preset-react @mulekick/eslint-config-muleslint babel-plugin-macros react-scripts sass
 ```
-4. update package.json :
+4. install project dependencies
+```bash
+npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @tanstack/react-table react-select
+```
+5. update package.json :
    - add custom package.json scripts
    - remove ```eslintConfig``` key
+   - remove ```browserslist``` key
    - switch to ESM modules use :```"type": "module"```
    - add informational entries
-5. add custom ```.eslintrc.json``` file
-6. file system cleanup
+6. add custom ```.eslintrc.json``` file
+7. add custom ```.browserslistrc``` file
+8. add babel-related config files (```babel.config.json``` and ```.babel-plugin-macrosrc.json```)
+9. file system cleanup
 ```bash
 rm src/setupTests.js src/reportWebVitals.js src/logo.svg src/index.css src/App.test.js src/App.css public/logo* public/manifest.json public/robots.txt
 ```
