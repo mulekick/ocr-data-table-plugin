@@ -1,7 +1,7 @@
 {
     "name": "@mulekick/ocr-data-table-plugin",
     "description": "'Convert a jQuery Library to React' - OpenClassRooms project : design a reusable React plugin",
-    "version": "0.2.9",
+    "version": "0.3.0",
     "private": false,
     "type": "module",
     "main": "dist/index.js",
@@ -45,6 +45,12 @@
     },
     "author": "mulekick <moolekick@gmail.com> (https://github.com/mulekick)",
     "license": "MIT",
-    "repository": {},
-    "bugs": {}
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mulekick/ocr-data-table-plugin.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mulekick/ocr-data-table-plugin/issues"
+    },
+    "homepage": "https://github.com/mulekick/ocr-data-table-plugin"
 }
